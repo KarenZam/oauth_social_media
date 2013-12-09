@@ -1,0 +1,19 @@
+<% if @access_token %>
+  <%= @access_token %>
+
+  <%= link_to @user_profile_url, @user_profile_url %>
+  
+<% else %>
+  <p>Code: <%= @code %></p>
+  <p>State: <%= @state %></p>
+
+  <hr/>
+
+  <p>Exchange this for an access token:</p>
+  <%= form_tag "http://my-localhost.com:3000/oauth/github_access_token" do %>
+    code: <input type="text" name="code" value="<%= @code %>">
+    <br/>
+    <input type="submit" value="Submit">
+  <% end %>
+
+<% end %>

@@ -1,4 +1,4 @@
-oauth_social_media
-==================
+oauth_example
+=============
 
-Using Oauth for social media as facebook linkedin github behance...
+example of Oauth for social media such as github behance twitter linked facebook
