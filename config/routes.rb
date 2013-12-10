@@ -12,6 +12,9 @@ OauthGithubSample::Application.routes.draw do
     get "callbackTwitter" => "twitter_callback#twitter_callback"
     get 'generate_twitter' => 'twitter_callback#generate_twitter'
 
+    get "callbackLinkedin" => "linkedin_callback#linkedin_callback"
+    get 'generate_linkedin' => 'linkedin_callback#generate_linkedin'
+
   end
   
 end
