@@ -14,28 +14,36 @@ class Oauth::TwitterCallbackController < ApplicationController
   end
 
   def twitter_callback
-    @client = TwitterOAuth::Client.new(
+    @twitter_user = TwitterOAuth::Client.new(
       :consumer_key => ENV["TWITTER_APP_ID"],
       :consumer_secret => ENV["TWITTER_APP_SECRET"]
     )
-    access_token = @client.authorize(session[:rtoken], session[:rsecret], :oauth_verifier => params[:oauth_verifier])
-    atoken = access_token.token
-    asecret = access_token.secret
-    @user_id = params[:user_id]
-
-    puts
-    puts
-    puts "////////// USER ID ///////////////"
-    puts @user_id
-    puts @user_id.keys
-    puts
-    puts @user_id.values
+    puts "////////////////////////////"
+    puts "rtoken"
+    puts session[:rtoken]
+    puts "rsecret"
+    puts session[:rsecret]
+    # access_token = @twitter_user.authorize(session[:rtoken], session[:rsecret], :oauth_verifier => params[:oauth_verifier])
+    # atoken = access_token.token
+    # asecret = access_token.secret
     
+
+    # puts
+    # puts
+    # puts "////////// USER ID ///////////////"
+    # puts @twitter_user.inspect
+    # puts "////////// USER PARAMS ///////////////"
+    # puts @twitter_user
+    # puts
+        
   end
 
-  def twitter_profile
-
-  end
 
 end
+
+
+
+# u = TwitterOAuth::Client.new(:consumer_key => "LqlUXDjbTxun0pjudhEifQ",:consumer_secret => "JMBtg3dx3rhTgMO8OIj64BWHa78AT0yfBQfAvCVmY")
+
+# u.authorize("xamW5CT3p2pFQCY77vogeUv3qIfKIiZPTbKnf9BGFng", "FcjyHwceyrbtCuNHFun9WOqcH9RMD4yYs8dpNbaHYw", :oauth_verifier => "hLsX41PvHO1c5h0EEow4Qvu68VJXRTisPDJgyMOisQ")
 
