@@ -1,6 +1,15 @@
-Hello twitter
+<h1> Twitter </h1>
+<p> name: <%= @twitter_user.user.first["user"]["screen_name"] %> </p>
+<p> <%= @twitter_user.user.first["user"]["description"] %> </p>
+<p> location: <%= @twitter_user.user.first["user"]["location"] %> </p>
+<p> numbers of followers: <%= @twitter_user.user.first["user"]["followers_count"] %> </p>
+<img src="<%= @twitter_user.user.first["user"]["profile_background_image_url"] %>">
+<img src="<%= @twitter_user.user.first["user"]["profile_image_url"] %>">
 
-<%= @twitter_user.inspect %>
+<% @twitter_user.user_timeline.each do |u| %>
+    <p><%= u["text"] %></p>
+    <p><%= u["created_at"] %></p>
+<% end %>
 
 <hr/>
 

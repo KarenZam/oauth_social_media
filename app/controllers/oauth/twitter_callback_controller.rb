@@ -23,27 +23,22 @@ class Oauth::TwitterCallbackController < ApplicationController
     puts session[:rtoken]
     puts "rsecret"
     puts session[:rsecret]
-    # access_token = @twitter_user.authorize(session[:rtoken], session[:rsecret], :oauth_verifier => params[:oauth_verifier])
-    # atoken = access_token.token
-    # asecret = access_token.secret
+    access_token = @twitter_user.authorize(session[:rtoken], session[:rsecret], :oauth_verifier => params[:oauth_verifier])
+    atoken = access_token.token
+    asecret = access_token.secret
+
+    @twitter_user.info["id_str"]
     
+    @twitter_user.user_timeline.each do |u|
+      puts
+      puts u["text"]
+      puts u["created_at"]
+      puts
+    end
 
-    # puts
-    # puts
-    # puts "////////// USER ID ///////////////"
-    # puts @twitter_user.inspect
-    # puts "////////// USER PARAMS ///////////////"
-    # puts @twitter_user
-    # puts
-        
   end
-
 
 end
 
 
-
-# u = TwitterOAuth::Client.new(:consumer_key => "LqlUXDjbTxun0pjudhEifQ",:consumer_secret => "JMBtg3dx3rhTgMO8OIj64BWHa78AT0yfBQfAvCVmY")
-
-# u.authorize("xamW5CT3p2pFQCY77vogeUv3qIfKIiZPTbKnf9BGFng", "FcjyHwceyrbtCuNHFun9WOqcH9RMD4yYs8dpNbaHYw", :oauth_verifier => "hLsX41PvHO1c5h0EEow4Qvu68VJXRTisPDJgyMOisQ")
 
