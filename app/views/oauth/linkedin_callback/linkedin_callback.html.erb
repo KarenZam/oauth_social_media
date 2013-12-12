@@ -1,4 +1,14 @@
 <h1> LinkedIn </h1>
 
+<img src="<%= @linkedin_profile["picture_url"]%>" >
+
+<h2><%= @linkedin_profile["first_name"]%> <%= @linkedin_profile["last_name"] %></h2>
+<h3><%= @linkedin_profile["headline"] %></h3>
+<p><%= @linkedin_profile["industry"] %></p>
+<p><%= @linkedin_profile["interests"] %></p>
+<p><%= @linkedin_profile["positions"] %></p>
+<p><%= @linkedin_profile["public_profile_url"] %></p>
+<p><%= @linkedin_profile["summary"] %></p>
+
 
 <%= link_to "home", root_url %>

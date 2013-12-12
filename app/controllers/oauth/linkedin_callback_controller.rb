@@ -4,10 +4,6 @@ class Oauth::LinkedinCallbackController < ApplicationController
 
   def generate_linkedin
     client = LinkedIn::Client.new
-    # rtoken = client.request_token.token
-    # rsecret = client.request_token.secret
-    # session[:rtoken] = rtoken
-    # session[:rsecret] = rsecret
     request_token = client.request_token(:oauth_callback =>"http://my-localhost.com:3000/oauth/callbackLinkedin")
     session[:rtoken] = request_token.token
     session[:rsecret] = request_token.secret
@@ -22,7 +18,8 @@ class Oauth::LinkedinCallbackController < ApplicationController
     atoken, asecret = client.authorize_from_request(session[:rtoken], session[:rsecret], params[:oauth_verifier])
     session[:atoken] = atoken
     session[:asecret] = asecret
-      
+    @linkedin_profile = client.profile
   end
 
 end
+

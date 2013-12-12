@@ -30,17 +30,6 @@ class OauthBehance
     username = formatted_response["user"]["username"]
     display_name = formatted_response["user"]["display_name"]
     access_token
-
-    puts
-    puts
-    puts "//////// USERNAME ////////"
-    puts username
-    puts display_name
-    puts formatted_response
-    puts
-    puts
-    puts
-    puts
     
     [access_token, username, display_name]
   end
